@@ -3,6 +3,7 @@
 # Package Files #
 *.jar
 *.war
+!war/WEB-INF/lib/*.jar
 
 # gwt caches and compiled units #
 war/gwt_bree/
