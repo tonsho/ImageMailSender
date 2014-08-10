@@ -7,7 +7,10 @@
  </head>
  <body>
   <form action="/imagemailsender" enctype="multipart/form-data" method="post">
-   <input type="file" name="files" multiple><br>
+  <table>
+    <tr><td>To : </td><td><input type="text" name="address" ></td></tr>
+    <tr><td>Image Files : </td><td><input type="file" name="files" multiple></td></tr>
+  </table>
    <input type="submit" value="送信">
   </form>
 <%
