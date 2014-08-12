@@ -1,28 +1,54 @@
-*.class
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
 
-# Package Files #
-*.jar
-*.war
+# C extensions
+*.so
 
-# gwt caches and compiled units #
-war/gwt_bree/
-gwt-unitCache/
+# Distribution / packaging
+.Python
+env/
+bin/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# boilerplate generated classes #
-.apt_generated/
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
 
-# more caches and things from deploy #
-war/WEB-INF/deploy/
-war/WEB-INF/classes/
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
 
-#compilation logs
-.gwt/
+# Translations
+*.mo
 
-#caching for already compiled files
-gwt-unitCache/
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
 
-#gwt junit compilation files
-www-test/
+# Rope
+.ropeproject
 
-#old GWT (1.5) created this dir
-.gwt-tmp/
+# Django stuff:
+*.log
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
