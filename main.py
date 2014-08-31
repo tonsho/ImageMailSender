@@ -163,6 +163,8 @@ class UploadHandler(webapp2.RequestHandler):
         logging.info('UploadHandler post()')
         if (self.request.get('_method') == 'DELETE'):
             return self.delete()
+        self.error(500)
+        return
         result = {'files': self.handle_upload()}
         s = json.dumps(result, separators=(',', ':'))
         redirect = self.request.get('redirect')
