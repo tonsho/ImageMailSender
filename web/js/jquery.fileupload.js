@@ -921,7 +921,7 @@
                     this._slots.push(slot);
                     pipe = slot.pipe(send);
                 } else {
-                    this._sequence = this._sequence.pipe(send, send);
+                    this._sequence = this._sequence.pipe(send);
                     pipe = this._sequence;
                 }
                 // Return the piped Promise object, enhanced with an abort method,
