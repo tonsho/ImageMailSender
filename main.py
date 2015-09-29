@@ -110,30 +110,32 @@ class UploadHandler(webapp2.RequestHandler):
             )
             result['type'] = fieldStorage.type
             result['size'] = self.get_file_size(fieldStorage.file)
-            if self.validate(result):
-                blob_key = str(
-                    self.write_blob(fieldStorage.value, result)
-                )
-                blob_keys.append(blob_key)
-                result['deleteType'] = 'DELETE'
-                result['deleteUrl'] = self.request.host_url +\
-                    '/?key=' + urllib.quote(blob_key, '')
-                if (IMAGE_TYPES.match(result['type'])):
-                    try:
-                        result['url'] = images.get_serving_url(
-                            blob_key,
-                            secure_url=self.request.host_url.startswith(
-                                'https'
-                            )
-                        )
-                        result['thumbnailUrl'] = result['url'] +\
-                            THUMBNAIL_MODIFICATOR
-                    except:  # Could not get an image serving url
-                        pass
-                if not 'url' in result:
-                    result['url'] = self.request.host_url +\
-                        '/' + blob_key + '/' + urllib.quote(
-                            result['name'].encode('utf-8'), '')
+#             if self.validate(result):
+#                 blob_key = str(
+#                     self.write_blob(fieldStorage.value, result)
+#                 )
+#                 blob_keys.append(blob_key)
+#                 result['deleteType'] = 'DELETE'
+#                 result['deleteUrl'] = self.request.host_url +\
+#                     '/?key=' + urllib.quote(blob_key, '')
+#                 if (IMAGE_TYPES.match(result['type'])):
+#                     try:
+#                         result['url'] = images.get_serving_url(
+#                             blob_key,
+#                             secure_url=self.request.host_url.startswith(
+#                                 'https'
+#                             )
+#                         )
+#                         result['thumbnailUrl'] = result['url'] +\
+#                             THUMBNAIL_MODIFICATOR
+#                     except:  # Could not get an image serving url
+#                         pass
+#                 if not 'url' in result:
+#                     result['url'] = self.request.host_url +\
+#                         '/' + blob_key + '/' + urllib.quote(
+#                             result['name'].encode('utf-8'), '')
+            result['url'] = self.request.host_url + '/web/img/check_apply_approved-512.png'
+            result['thumbnailUrl'] = result['url']
             results.append(result)
             self.send_mail(fieldStorage.filename, fieldStorage.value)
         deferred.defer(
